@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 
 import { poppins } from '@/lib/fonts'
 import Navbar from '@/components/layouts/Navbar'
+import Footer from '@/components/layouts/Footer'
 import '@/styles/globals.css'
 
 export const metadata: Metadata = {
@@ -20,6 +21,7 @@ const RootLayout = ({
 			<body className={`${poppins.variable} font-sans`}>
 				<Navbar />
 				<main>{children}</main>
+				<Footer />
 			</body>
 		</html>
 	)
