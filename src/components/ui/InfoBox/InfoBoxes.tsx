@@ -1,16 +1,5 @@
+import { InfoBoxDataType } from '@/types/infoBox'
 import InfoBox from './InfoBox'
-
-export type InfoBoxDataType = {
-	title: string
-	description: string
-	buttonInfo: {
-		link: string
-		text: string
-		bgColor: string
-	}
-	bgColor?: string
-	textColor?: string
-}
 
 const infoBoxesData: InfoBoxDataType[] = [
 	{

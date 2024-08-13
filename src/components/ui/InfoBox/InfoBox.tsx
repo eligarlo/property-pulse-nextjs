@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import { InfoBoxDataType } from './InfoBoxes'
+import { InfoBoxDataType } from '@/types/infoBox'
 
 const InfoBox = ({
 	title,
