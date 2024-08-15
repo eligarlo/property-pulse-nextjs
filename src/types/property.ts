@@ -1,6 +1,8 @@
+import { Types } from 'mongoose'
+
 export type PropertyType = {
 	_id: string
-	owner: string
+	owner: Types.ObjectId
 	name: string
 	type: string
 	description: string

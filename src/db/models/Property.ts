@@ -1,6 +1,7 @@
 import { Schema, model, models } from 'mongoose'
+import { PropertyType } from '@/types/property'
 
-const PropertySchema = new Schema(
+const PropertySchema = new Schema<PropertyType>(
 	{
 		owner: {
 			type: Schema.Types.ObjectId,
@@ -68,6 +69,6 @@ const PropertySchema = new Schema(
 	{ timestamps: true }
 )
 
-const Property = models.Property || model('Property', PropertySchema)
+const PropertyModel = models.Property || model<PropertyType>('Property', PropertySchema)
 
-export default Property
+export default PropertyModel
