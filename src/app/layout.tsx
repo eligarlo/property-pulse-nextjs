@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 
 import { poppins } from '@/lib/fonts'
+import AuthProvider from '@/components/providers/AuthProvider'
 import Navbar from '@/components/layouts/Navbar'
 import Footer from '@/components/layouts/Footer'
 import '@/styles/globals.css'
@@ -17,13 +18,15 @@ const RootLayout = ({
 	children: React.ReactNode
 }>) => {
 	return (
-		<html lang='en'>
-			<body className={`${poppins.variable} font-sans`}>
-				<Navbar />
-				<main>{children}</main>
-				<Footer />
-			</body>
-		</html>
+		<AuthProvider>
+			<html lang='en'>
+				<body className={`${poppins.variable} font-sans`}>
+					<Navbar />
+					<main>{children}</main>
+					<Footer />
+				</body>
+			</html>
+		</AuthProvider>
 	)
 }
 
