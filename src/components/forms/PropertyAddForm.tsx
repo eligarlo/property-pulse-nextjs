@@ -1,6 +1,11 @@
+import addProperty from '@/lib/actions/addProperty'
+
 const PropertyAddForm = () => {
+	// TODO: Implement user preference for metric or imperial units
+	const userPrefersMetric = false
+
 	return (
-		<form>
+		<form action={addProperty}>
 			<h2 className='text-3xl text-center font-semibold mb-6'>Add Property</h2>
 
 			<div className='mb-4'>
@@ -102,12 +107,12 @@ const PropertyAddForm = () => {
 				</div>
 				<div className='w-full sm:w-1/3 pl-2'>
 					<label htmlFor='square_feet' className='block text-gray-700 font-bold mb-2'>
-						Square Feet
+						{userPrefersMetric ? 'Square Meters' : 'Square Feet'}
 					</label>
 					<input
 						type='number'
-						id='square_feet'
-						name='square_feet'
+						id={`${userPrefersMetric ? 'square_meters' : 'square_feet'}`}
+						name={`${userPrefersMetric ? 'square_meters' : 'square_feet'}`}
 						className='border rounded w-full py-2 px-3'
 						required
 					/>
@@ -318,7 +323,7 @@ const PropertyAddForm = () => {
 				<input
 					type='text'
 					id='seller_name'
-					name='seller_info.name.'
+					name='seller_info.name'
 					className='border rounded w-full py-2 px-3'
 					placeholder='Name'
 				/>
