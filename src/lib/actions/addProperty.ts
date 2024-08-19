@@ -4,6 +4,7 @@ import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'
 
 import connectDB from '@/config/database'
+import cloudinary from '@/config/cloudinary'
 import { getPropertySizes, getSessionUser } from '@/lib/utils'
 import PropertyModel from '@/db/models/Property'
 
@@ -18,12 +19,8 @@ async function addProperty(formData: FormData) {
 
 	const { userId } = sessionUser
 
-	// Access all values from amenities and images
+	// Access all values from amenities
 	const amenities = formData.getAll('amenities')
-	const images = formData
-		.getAll('images')
-		.filter((image): image is File => image instanceof File && image.name !== '')
-		.map(image => image.name)
 
 	const { square_feet, square_meters } = getPropertySizes(
 		formData.get('square_feet'),
@@ -56,8 +53,33 @@ async function addProperty(formData: FormData) {
 			email: formData.get('seller_info.email'),
 			phone: formData.get('seller_info.phone'),
 		},
-		images,
+		images: [] as string[],
 	}
+
+	const imageUrls: string[] = []
+
+	// Filter out empty images
+	const images = formData
+		.getAll('images')
+		.filter((image): image is File => image instanceof File && image.name !== '')
+
+	for (const imageFile of images) {
+		const imageBuffer = await imageFile.arrayBuffer()
+		const imageArray = Array.from(new Uint8Array(imageBuffer))
+		const imageData = Buffer.from(imageArray)
+
+		// Convert to base64
+		const imageBase64 = imageData.toString('base64')
+
+		// Upload image to Cloudinary
+		const result = await cloudinary.uploader.upload(`data:image/png;base64,${imageBase64}`, {
+			folder: 'propertypulse',
+		})
+
+		imageUrls.push(result.secure_url)
+	}
+
+	propertyData.images = imageUrls
 
 	const newProperty = new PropertyModel(propertyData)
 	await newProperty.save()
