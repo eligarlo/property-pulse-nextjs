@@ -6,7 +6,6 @@ import { PropertyType } from '@/types/property'
 
 const PropertyCard = (property: PropertyType) => {
 	// TODO: Implement user preference for metric or imperial units
-
 	const userPrefersMetric = false
 
 	const getRateDisplay = () => {
@@ -24,7 +23,7 @@ const PropertyCard = (property: PropertyType) => {
 	return (
 		<div className='rounded-xl shadow-md relative'>
 			<Image
-				src={`/images/properties/${property.images[0]}`}
+				src={property.images[0]}
 				alt='Property Image'
 				width={0}
 				height={0}

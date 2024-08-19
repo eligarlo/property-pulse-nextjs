@@ -6,6 +6,7 @@ import PropertyModel from '@/db/models/Property'
 import { PropertyType } from '@/types/property'
 import PropertyHeaderImage from '@/components/ui/property/PropertyHeaderImage'
 import PropertyDetails from '@/components/ui/property/PropertyDetails'
+import PropertyImages from '@/components/ui/property/PropertyImages'
 
 type PropertyPageProps = {
 	params: {
@@ -40,6 +41,8 @@ const PropertyPage = async ({ params }: PropertyPageProps) => {
 					</div>
 				</div>
 			</section>
+
+			<PropertyImages images={property.images} />
 		</>
 	)
 }
