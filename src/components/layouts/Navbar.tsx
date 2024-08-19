@@ -20,6 +20,7 @@ import profileDefault from '@/assets/images/profile.png'
 
 const Navbar = () => {
 	const { data: session } = useSession()
+	const profileImage = session?.user?.image
 
 	const pathName = usePathname()
 
@@ -38,6 +39,11 @@ const Navbar = () => {
 
 		setAuthProviders()
 	}, [])
+
+	const handleSighOut = () => {
+		setIsProfileMenuOpen(false)
+		signOut()
+	}
 
 	return (
 		<nav className='bg-blue-700 border-b border-blue-500'>
@@ -176,7 +182,13 @@ const Navbar = () => {
 									>
 										<span className='absolute -inset-1.5'></span>
 										<span className='sr-only'>Open user menu</span>
-										<Image className='h-8 w-8 rounded-full' src={profileDefault} alt='' />
+										<Image
+											className='h-8 w-8 rounded-full'
+											src={profileImage || profileDefault}
+											alt='Profile Image'
+											width={40}
+											height={40}
+										/>
 									</button>
 								</div>
 
@@ -209,6 +221,7 @@ const Navbar = () => {
 											Saved Properties
 										</Link>
 										<button
+											onClick={handleSighOut}
 											className='block px-4 py-2 text-sm text-gray-700'
 											role='menuitem'
 											tabIndex={-1}
