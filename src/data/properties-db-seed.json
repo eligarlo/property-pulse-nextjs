@@ -40,9 +40,10 @@
       "phone": "617-555-5555"
     },
     "images": [
-      "a1.jpg",
-      "a2.jpg",
-      "a3.jpg"
+      "https://res.cloudinary.com/eligarlo/image/upload/v1724089384/propertypulse/czegd7icqyggqh3noirb.jpg",
+      "https://res.cloudinary.com/eligarlo/image/upload/v1724089384/propertypulse/dwks98ztd0xspb6n7kfx.jpg",
+      "https://res.cloudinary.com/eligarlo/image/upload/v1724089384/propertypulse/qniuaihifnaoumryqesw.jpg",
+      "https://res.cloudinary.com/eligarlo/image/upload/v1724089384/propertypulse/mi7qx5d8hwnktzui4xc5.jpg"
     ],
     "is_featured": false,
     "createdAt": "2024-01-01T00:00:00.000Z",
@@ -88,9 +89,9 @@
       "phone": "212-555-5555"
     },
     "images": [
-      "b1.jpg",
-      "b2.jpg",
-      "b3.jpg"
+      "https://res.cloudinary.com/eligarlo/image/upload/v1724089384/propertypulse/kv2cs9zhaome6edbhdnh.jpg",
+      "https://res.cloudinary.com/eligarlo/image/upload/v1724089384/propertypulse/bf7lzo1jqcq22p8g2ijq.jpg",
+      "https://res.cloudinary.com/eligarlo/image/upload/v1724089384/propertypulse/ub3gwnthgbxdnx0ojtll.jpg"
     ],
     "is_featured": false,
     "createdAt": "2024-01-02T00:00:00.000Z",
@@ -138,9 +139,10 @@
       "phone": "213-555-5555"
     },
     "images": [
-      "c1.jpg",
-      "c2.jpg",
-      "c3.jpg"
+      "https://res.cloudinary.com/eligarlo/image/upload/v1724089384/propertypulse/e74iuprgzg9k66byymt2.jpg",
+      "https://res.cloudinary.com/eligarlo/image/upload/v1724089384/propertypulse/mjxwsfxvmsluq9p9yxd1.jpg",
+      "https://res.cloudinary.com/eligarlo/image/upload/v1724089384/propertypulse/cp9wm2emnkk9e6uxwf5x.jpg",
+      "https://res.cloudinary.com/eligarlo/image/upload/v1724089384/propertypulse/mhcuuz8se674rrv6826x.jpg"
     ],
     "is_featured": false,
     "createdAt": "2024-01-03T00:00:00.000Z",
@@ -176,9 +178,9 @@
       "phone": "512-555-5555"
     },
     "images": [
-      "d1.jpg",
-      "d2.jpg",
-      "d3.jpg"
+      "https://res.cloudinary.com/eligarlo/image/upload/v1724089384/propertypulse/lc8wdirmxr9qdzkv2y96.jpg",
+      "https://res.cloudinary.com/eligarlo/image/upload/v1724089384/propertypulse/qhn7kljb9a1vldqg6vsk.jpg",
+      "https://res.cloudinary.com/eligarlo/image/upload/v1724089384/propertypulse/egwv7qyawu4eoifw8nyz.jpg"
     ],
     "is_featured": false,
     "createdAt": "2024-01-04T00:00:00.000Z",
@@ -216,9 +218,10 @@
       "phone": "312-555-5555"
     },
     "images": [
-      "e1.jpg",
-      "e2.jpg",
-      "e3.jpg"
+      "https://res.cloudinary.com/eligarlo/image/upload/v1724089384/propertypulse/gd3y8torgvnmll9sgkpk.jpg",
+      "https://res.cloudinary.com/eligarlo/image/upload/v1724089384/propertypulse/qtnb7oqlqt6bn8y4d0pd.jpg",
+      "https://res.cloudinary.com/eligarlo/image/upload/v1724089384/propertypulse/nkhkc1cldya7zgca8npp.jpg",
+      "https://res.cloudinary.com/eligarlo/image/upload/v1724089384/propertypulse/ulby3fdvinyf9yzup2sk.jpg"
     ],
     "is_featured": true,
     "createdAt": "2024-01-05T00:00:00.000Z",
@@ -256,9 +259,9 @@
       "phone": "305-555-5555"
     },
     "images": [
-      "f1.jpg",
-      "f2.jpg",
-      "f3.jpg"
+      "https://res.cloudinary.com/eligarlo/image/upload/v1724089384/propertypulse/btai9cdllhhuoaqiqcp2.jpg",
+      "https://res.cloudinary.com/eligarlo/image/upload/v1724089384/propertypulse/gv3mgx3hpe56mvf4eflc.jpg",
+      "https://res.cloudinary.com/eligarlo/image/upload/v1724089384/propertypulse/we1n1dmtsmanqeagr72t.jpg"
     ],
     "is_featured": true,
     "createdAt": "2024-01-06T00:00:00.000Z",
@@ -295,9 +298,10 @@
       "phone": "303-555-5555"
     },
     "images": [
-      "g1.jpg",
-      "g2.jpg",
-      "g3.jpg"
+      "https://res.cloudinary.com/eligarlo/image/upload/v1724089384/propertypulse/ploxtwatolpzkohbw4a8.jpg",
+      "https://res.cloudinary.com/eligarlo/image/upload/v1724089384/propertypulse/im505ucftg9ftvctm5ke.jpg",
+      "https://res.cloudinary.com/eligarlo/image/upload/v1724089384/propertypulse/cpkmfurnlbwliwu555ps.jpg",
+      "https://res.cloudinary.com/eligarlo/image/upload/v1724089384/propertypulse/dfnntzv0alnbizjtdq8z.jpg"
     ],
     "is_featured": false,
     "createdAt": "2024-01-07T00:00:00.000Z",
@@ -334,9 +338,9 @@
       "phone": "970-555-5555"
     },
     "images": [
-      "h1.jpg",
-      "h2.jpg",
-      "h3.jpg"
+      "https://res.cloudinary.com/eligarlo/image/upload/v1724089384/propertypulse/i5wcn1qwnlmcqj4vbica.jpg",
+      "https://res.cloudinary.com/eligarlo/image/upload/v1724089384/propertypulse/retvjo16tjbylsreib2k.jpg",
+      "https://res.cloudinary.com/eligarlo/image/upload/v1724089384/propertypulse/srgxbxyxdqh9chld1vjk.jpg"
     ],
     "is_featured": false,
     "createdAt": "2024-01-08T00:00:00.000Z",
@@ -374,9 +378,9 @@
       "phone": "303-555-5555"
     },
     "images": [
-      "i1.jpg",
-      "i2.jpg",
-      "i3.jpg"
+      "https://res.cloudinary.com/eligarlo/image/upload/v1724089384/propertypulse/wb3itujxotj3khdookrp.jpg",
+      "https://res.cloudinary.com/eligarlo/image/upload/v1724089384/propertypulse/z5wfnenmwmmlmomjazqn.jpg",
+      "https://res.cloudinary.com/eligarlo/image/upload/v1724089384/propertypulse/buonxahlrzvemqfqvy57.jpg"
     ],
     "is_featured": false,
     "createdAt": "2024-01-09T00:00:00.000Z",
@@ -413,9 +417,9 @@
       "phone": "215-555-5555"
     },
     "images": [
-      "j1.jpg",
-      "j2.jpg",
-      "j3.jpg"
+      "https://res.cloudinary.com/eligarlo/image/upload/v1724089384/propertypulse/jlfqnhnwfefuaovi79km.jpg",
+      "https://res.cloudinary.com/eligarlo/image/upload/v1724089384/propertypulse/tm9wqfywvucfg8948fyh.jpg",
+      "https://res.cloudinary.com/eligarlo/image/upload/v1724089384/propertypulse/qniuaihifnaoumryqesw.jpg"
     ],
     "is_featured": false,
     "createdAt": "2024-01-10T00:00:00.000Z",

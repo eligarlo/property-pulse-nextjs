@@ -64,12 +64,12 @@ const PropertyCard = (property: PropertyType) => {
 				</div>
 
 				<div className='flex justify-center gap-4 text-green-900 text-sm mb-4'>
-					<p>
-						<FaMoneyBill className='md:hidden lg:inline' /> Weekly
-					</p>
-					<p>
-						<FaMoneyBill className='md:hidden lg:inline' /> Monthly
-					</p>
+					{Object.keys(property.rates).map(key => (
+						<p key={key}>
+							<FaMoneyBill className='md:hidden lg:inline' />{' '}
+							{key.charAt(0).toUpperCase() + key.slice(1)}
+						</p>
+					))}
 				</div>
 
 				<div className='border border-gray-100 mb-5'></div>
