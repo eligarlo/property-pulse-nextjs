@@ -1,3 +1,4 @@
+import updateProperty from '@/lib/actions/updateProperty'
 import { PropertyType } from '@/types/property'
 
 type PropertyEditFormProps = {
@@ -8,8 +9,10 @@ const PropertyEditForm = ({ property }: PropertyEditFormProps) => {
 	// TODO: Implement user preference for metric or imperial units
 	const userPrefersMetric = false
 
+	const updatePropertyById = updateProperty.bind(null, property._id)
+
 	return (
-		<form>
+		<form action={updatePropertyById}>
 			<h2 className='text-3xl text-center font-semibold mb-6'>Edit Property</h2>
 
 			<div className='mb-4'>

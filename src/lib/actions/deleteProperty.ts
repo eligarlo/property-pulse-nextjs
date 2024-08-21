@@ -7,6 +7,8 @@ import PropertyModel from '@/db/models/Property'
 import { getSessionUser } from '@/lib/utils'
 
 const deleteProperty = async (propertyId: string) => {
+	await connectDB()
+
 	const sessionUser = await getSessionUser()
 
 	if (!sessionUser || !sessionUser.userId) {

@@ -1,14 +1,12 @@
 'use server'
-
 import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'
 
 import connectDB from '@/config/database'
-import cloudinary from '@/config/cloudinary'
 import { getPropertySizes, getSessionUser } from '@/lib/utils'
 import PropertyModel from '@/db/models/Property'
 
-async function addProperty(formData: FormData) {
+const updateProperty = async (propertyId: string, formData: FormData) => {
 	await connectDB()
 
 	const sessionUser = await getSessionUser()
@@ -18,6 +16,13 @@ async function addProperty(formData: FormData) {
 	}
 
 	const { userId } = sessionUser
+
+	const existingProperty = await PropertyModel.findById(propertyId)
+
+	// Verify Ownership
+	if (existingProperty.owner.toString() !== userId) {
+		throw new Error('Unauthorized')
+	}
 
 	const { square_feet, square_meters } = getPropertySizes(
 		formData.get('square_feet'),
@@ -50,40 +55,13 @@ async function addProperty(formData: FormData) {
 			email: formData.get('seller_info.email'),
 			phone: formData.get('seller_info.phone'),
 		},
-		images: [] as string[],
+		// images: [] as string[],
 	}
 
-	const imageUrls: string[] = []
-
-	// Filter out empty images
-	const images = formData
-		.getAll('images')
-		.filter((image): image is File => image instanceof File && image.name !== '')
-
-	for (const imageFile of images) {
-		const imageBuffer = await imageFile.arrayBuffer()
-		const imageArray = Array.from(new Uint8Array(imageBuffer))
-		const imageData = Buffer.from(imageArray)
-
-		// Convert to base64
-		const imageBase64 = imageData.toString('base64')
-
-		// Upload image to Cloudinary
-		const result = await cloudinary.uploader.upload(`data:image/png;base64,${imageBase64}`, {
-			folder: 'propertypulse',
-		})
-
-		imageUrls.push(result.secure_url)
-	}
-
-	propertyData.images = imageUrls
-
-	const newProperty = new PropertyModel(propertyData)
-	await newProperty.save()
+	const updatedProperty = await PropertyModel.findByIdAndUpdate(propertyId, propertyData)
 
 	revalidatePath('/', 'layout')
-
-	redirect(`/properties/${newProperty._id}`)
+	redirect(`/properties/${updatedProperty._id}`)
 }
 
-export default addProperty
+export default updateProperty
