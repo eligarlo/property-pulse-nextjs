@@ -1,4 +1,5 @@
 import { getServerSession } from 'next-auth/next'
+import { FlattenMaps } from 'mongoose'
 
 import { authOptions } from '@/lib/authOptions'
 
@@ -38,4 +39,19 @@ export const getPropertySizes = (
 	}
 
 	return propertySizes
+}
+
+export const convertToSerializableObject = (
+	leanDocument: FlattenMaps<any> &
+		Required<{
+			_id: unknown
+		}>
+) => {
+	for (const key of Object.keys(leanDocument)) {
+		if (leanDocument[key].toJSON && leanDocument[key].toString) {
+			leanDocument[key] = leanDocument[key].toString()
+		}
+	}
+
+	return leanDocument
 }

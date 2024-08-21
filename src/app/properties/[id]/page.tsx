@@ -7,6 +7,7 @@ import { PropertyType } from '@/types/property'
 import PropertyHeaderImage from '@/components/ui/property/PropertyHeaderImage'
 import PropertyDetails from '@/components/ui/property/PropertyDetails'
 import PropertyImages from '@/components/ui/property/PropertyImages'
+import { convertToSerializableObject } from '@/lib/utils'
 
 type PropertyPageProps = {
 	params: {
@@ -16,11 +17,13 @@ type PropertyPageProps = {
 
 const PropertyPage = async ({ params }: PropertyPageProps) => {
 	await connectDB()
-	const property: PropertyType | null = await PropertyModel.findById(params.id).lean()
+	const propertyDoc = await PropertyModel.findById(params.id).lean()
 
-	if (!property) {
-		return <section>Property not found</section>
+	if (!propertyDoc || Array.isArray(propertyDoc)) {
+		return <h1 className='text-center text-2xl font-bold mt-10'>Property Not Found</h1>
 	}
+
+	const property: PropertyType = convertToSerializableObject(propertyDoc) as PropertyType
 
 	return (
 		<>
