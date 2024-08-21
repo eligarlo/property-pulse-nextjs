@@ -1,9 +1,11 @@
 import { Metadata } from 'next'
+import { ToastContainer } from 'react-toastify'
 
 import { poppins } from '@/lib/fonts'
 import AuthProvider from '@/components/providers/AuthProvider'
 import Navbar from '@/components/layouts/Navbar'
 import Footer from '@/components/layouts/Footer'
+import 'react-toastify/dist/ReactToastify.css'
 import '@/styles/globals.css'
 
 export const metadata: Metadata = {
@@ -24,6 +26,7 @@ const RootLayout = ({
 					<Navbar />
 					<main>{children}</main>
 					<Footer />
+					<ToastContainer />
 				</body>
 			</html>
 		</AuthProvider>

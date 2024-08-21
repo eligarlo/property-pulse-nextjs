@@ -5,6 +5,7 @@ import Image from 'next/image'
 
 import { PropertyType } from '@/types/property'
 import deleteProperty from '@/lib/actions/deleteProperty'
+import { toast } from 'react-toastify'
 
 type ProfilePropertiesProps = {
 	properties: PropertyType[]
@@ -25,6 +26,8 @@ const ProfileProperties = ({ properties: initialProperties }: ProfilePropertiesP
 		const updatedProperties = properties.filter(property => property._id !== propertyId)
 
 		setProperties(updatedProperties)
+
+		toast.success('Property Deleted Successfully')
 	}
 
 	return (
