@@ -1,3 +1,15 @@
 {
-	"cSpell.words": ["cloudinary", "latin", "poppins", "propertypulse", "sqft", "toastify", "zipcode"]
+	"cSpell.words": [
+		"cloudinary",
+		"geocode",
+		"latin",
+		"maptiler",
+		"maptilersdk",
+		"opencage",
+		"poppins",
+		"propertypulse",
+		"sqft",
+		"toastify",
+		"zipcode"
+	]
 }

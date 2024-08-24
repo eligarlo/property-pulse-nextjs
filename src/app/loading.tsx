@@ -1,16 +1,7 @@
-'use client'
-
-import { ClipLoader } from 'react-spinners'
-
-const override: React.CSSProperties = {
-	display: 'block',
-	margin: '100px auto',
-}
+import Spinner from '@/components/ui/Spinner'
 
 const LoadingPage = () => {
-	return (
-		<ClipLoader color='#3b82f6' cssOverride={override} size={150} aria-label='Loading Spinner' />
-	)
+	return <Spinner />
 }
 
 export default LoadingPage

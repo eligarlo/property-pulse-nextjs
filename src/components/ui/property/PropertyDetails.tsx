@@ -1,6 +1,11 @@
+import dynamic from 'next/dynamic'
 import { FaTimes, FaBed, FaBath, FaRulerCombined, FaCheck, FaMapMarker } from 'react-icons/fa'
 
 import { PropertyType } from '@/types/property'
+
+const PropertyMap = dynamic(() => import('@/components/ui/property/PropertyMap'), {
+	ssr: false,
+})
 
 type PropertyDetailsProps = {
 	property: PropertyType
@@ -100,7 +105,7 @@ const PropertyDetails = ({ property }: PropertyDetailsProps) => {
 			{/* TODO: Implement map functionality */}
 			{/* <!-- Map --> */}
 			<div className='bg-white p-6 rounded-lg shadow-md mt-6'>
-				<div id='map'></div>
+				<PropertyMap property={property} />
 			</div>
 		</main>
 	)
