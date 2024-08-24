@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
-import maptilersdk from '@maptiler/sdk'
+import * as maptilersdk from '@maptiler/sdk'
 import opencage from 'opencage-api-client'
 import '@maptiler/sdk/dist/maptiler-sdk.css'
 
