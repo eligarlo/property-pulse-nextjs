@@ -4,10 +4,13 @@ import { FaArrowLeft } from 'react-icons/fa'
 import connectDB from '@/config/database'
 import PropertyModel from '@/db/models/Property'
 import { PropertyType } from '@/types/property'
+import { convertToSerializableObject } from '@/lib/utils'
 import PropertyHeaderImage from '@/components/ui/property/PropertyHeaderImage'
 import PropertyDetails from '@/components/ui/property/PropertyDetails'
 import PropertyImages from '@/components/ui/property/PropertyImages'
-import { convertToSerializableObject } from '@/lib/utils'
+import BookmarkButton from '@/components/ui/property/BookmarkButton'
+import ShareButtons from '@/components/ui/property/ShareButtons'
+import PropertyContactForm from '@/components/ui/property/PropertyContactForm'
 
 type PropertyPageProps = {
 	params: {
@@ -41,6 +44,12 @@ const PropertyPage = async ({ params }: PropertyPageProps) => {
 				<div className='container m-auto py-10 px-6'>
 					<div className='grid grid-cols-1 md:grid-cols-70/30 w-full gap-6'>
 						<PropertyDetails property={property} />
+
+						<aside className='space-y-4'>
+							<BookmarkButton property={property} />
+							<ShareButtons property={property} />
+							<PropertyContactForm property={property} />
+						</aside>
 					</div>
 				</div>
 			</section>
