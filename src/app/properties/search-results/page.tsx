@@ -42,8 +42,6 @@ const SearchResultsPage = async ({ searchParams }: { searchParams: SearchParams 
 		property => convertToSerializableObject(property) as PropertyType
 	)
 
-	console.log({ properties })
-
 	return (
 		<>
 			<section className='bg-blue-700 py-4'>
