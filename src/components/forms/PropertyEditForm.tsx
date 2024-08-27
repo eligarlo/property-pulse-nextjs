@@ -19,6 +19,7 @@ const PropertyEditForm = ({ property }: PropertyEditFormProps) => {
 				<label htmlFor='type' className='block text-gray-700 font-bold mb-2'>
 					Property Type
 				</label>
+				{/* TODO: Create a DB collection for property types */}
 				<select
 					id='type'
 					name='type'

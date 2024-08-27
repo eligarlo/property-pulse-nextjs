@@ -12,6 +12,7 @@ const PropertyAddForm = () => {
 				<label htmlFor='type' className='block text-gray-700 font-bold mb-2'>
 					Property Type
 				</label>
+				{/* TODO: Create a DB collection for property types */}
 				<select id='type' name='type' className='border rounded w-full py-2 px-3' required>
 					<option value='Apartment'>Apartment</option>
 					<option value='Condo'>Condo</option>
