@@ -8,6 +8,9 @@ export type MessageType = {
 	sender: Pick<UserType, 'username'>
 	property: Pick<PropertyType, 'name'>
 	name: string
+	body: string
+	email: string
+	phone: string
 	createdAt: string
 	updatedAt: string
 }
