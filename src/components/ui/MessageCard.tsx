@@ -1,8 +1,32 @@
+'use client'
+
+import { useState } from 'react'
+import { toast } from 'react-toastify'
+
+import markMessageAsRead from '@/lib/actions/markMessageAsRead'
 import { MessageType } from '@/types/messages'
 
-const MessageCard = ({ name, body, email, phone, property, createdAt }: MessageType) => {
+const MessageCard = ({ _id, name, body, email, phone, property, read, createdAt }: MessageType) => {
+	const [isRead, setIsRead] = useState(read)
+
+	const handleReadClick = async () => {
+		const { isMessageRead, error } = await markMessageAsRead(_id)
+
+		if (error) {
+			throw new Error(error)
+		}
+
+		setIsRead(isMessageRead)
+		toast.success(`Message marked as ${isMessageRead ? 'unread' : 'read'}`)
+	}
+
 	return (
 		<div className='relative bg-white p-4 rounded-md shadow-md border border-gray-200'>
+			{!isRead && (
+				<div className='absolute top-2 right-2 bg-yellow-500 text-white px-2 py-1 rounded-md'>
+					New
+				</div>
+			)}
 			<h2 className='text-xl mb-4'>
 				<span className='font-bold'>Property Inquiry:</span> {property.name}
 			</h2>
@@ -29,8 +53,13 @@ const MessageCard = ({ name, body, email, phone, property, createdAt }: MessageT
 					<strong>Received:</strong> {new Date(createdAt).toLocaleString()}
 				</li>
 			</ul>
-			<button className='mt-4 mr-3 bg-blue-500 text-white py-1 px-3 rounded-md'>
-				Mark As Read
+			<button
+				onClick={handleReadClick}
+				className={`${
+					isRead ? 'bg-blue-500' : 'bg-green-600'
+				} mt-4 mr-3 text-white py-1 px-3 rounded-md`}
+			>
+				{isRead ? 'Mark As Unread' : 'Mark As Read'}
 			</button>
 			<button className='mt-4 bg-red-500 text-white py-1 px-3 rounded-md'>Delete</button>
 		</div>

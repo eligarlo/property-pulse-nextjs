@@ -11,6 +11,7 @@ export type MessageType = {
 	body: string
 	email: string
 	phone: string
+	read: boolean
 	createdAt: string
 	updatedAt: string
 }
