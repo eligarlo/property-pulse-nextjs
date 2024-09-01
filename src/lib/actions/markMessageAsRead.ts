@@ -12,7 +12,7 @@ async function markMessageAsRead(messageId: string) {
 	const sessionUser = await getSessionUser()
 
 	if (!sessionUser || !sessionUser.userId) {
-		return { error: 'User ID is required' }
+		return { error: 'User ID is required', isMessageRead: false }
 	}
 
 	const { userId } = sessionUser
@@ -20,18 +20,18 @@ async function markMessageAsRead(messageId: string) {
 	const user = await UserModel.findById(userId)
 
 	if (!user) {
-		return { error: 'User not found' }
+		return { error: 'User not found', isMessageRead: false }
 	}
 
 	const message = await MessageModel.findById(messageId)
 
 	if (!message) {
-		return { error: 'Message not found' }
+		return { error: 'Message not found', isMessageRead: false }
 	}
 
 	// Verify Ownership
 	if (message.recipient.toString() !== userId) {
-		return { error: 'Unauthorized' }
+		return { error: 'Unauthorized', isMessageRead: false }
 	}
 
 	message.read = !message.read

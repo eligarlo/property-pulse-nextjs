@@ -6,8 +6,11 @@ import { toast } from 'react-toastify'
 import markMessageAsRead from '@/lib/actions/markMessageAsRead'
 import { MessageType } from '@/types/messages'
 import deleteMessage from '@/lib/actions/deleteMessage'
+import { useGlobalContext } from '@/context/GlobalContext'
 
 const MessageCard = ({ _id, name, body, email, phone, property, read, createdAt }: MessageType) => {
+	const { setUnreadCount } = useGlobalContext()
+
 	const [isRead, setIsRead] = useState(read)
 	const [isDelete, setIsDelete] = useState(false)
 
@@ -19,6 +22,7 @@ const MessageCard = ({ _id, name, body, email, phone, property, read, createdAt 
 		}
 
 		setIsRead(isMessageRead)
+		setUnreadCount(prevCount => (isMessageRead ? prevCount - 1 : prevCount + 1))
 		toast.success(`Message Marked As ${isMessageRead ? 'Unread' : 'Read'}`)
 	}
 
@@ -26,6 +30,7 @@ const MessageCard = ({ _id, name, body, email, phone, property, read, createdAt 
 		await deleteMessage(_id)
 
 		setIsDelete(true)
+		setUnreadCount(prevCount => (isRead ? prevCount : prevCount - 1))
 		toast.success('Message deleted')
 	}
 

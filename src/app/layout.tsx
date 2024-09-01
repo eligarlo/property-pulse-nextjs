@@ -3,6 +3,7 @@ import { ToastContainer } from 'react-toastify'
 
 import { poppins } from '@/lib/fonts'
 import AuthProvider from '@/components/providers/AuthProvider'
+import { GlobalProvider } from '@/context/GlobalContext'
 import Navbar from '@/components/layouts/Navbar'
 import Footer from '@/components/layouts/Footer'
 import 'react-toastify/dist/ReactToastify.css'
@@ -21,14 +22,16 @@ const RootLayout = ({
 }>) => {
 	return (
 		<AuthProvider>
-			<html lang='en'>
-				<body className={`${poppins.variable} font-sans`}>
-					<Navbar />
-					<main>{children}</main>
-					<Footer />
-					<ToastContainer />
-				</body>
-			</html>
+			<GlobalProvider>
+				<html lang='en'>
+					<body className={`${poppins.variable} font-sans`}>
+						<Navbar />
+						<main>{children}</main>
+						<Footer />
+						<ToastContainer />
+					</body>
+				</html>
+			</GlobalProvider>
 		</AuthProvider>
 	)
 }
