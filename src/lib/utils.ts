@@ -2,6 +2,7 @@ import { getServerSession } from 'next-auth/next'
 import { FlattenMaps } from 'mongoose'
 
 import { authOptions } from '@/lib/authOptions'
+import { PropertyType } from '@/types/property'
 
 export const getSessionUser = async () => {
 	// @ts-ignore
@@ -54,4 +55,14 @@ export const convertToSerializableObject = (
 	}
 
 	return leanDocument
+}
+
+export const getRateDisplay = (rates: PropertyType['rates']) => {
+	if (rates.monthly) {
+		return `$${rates.monthly.toLocaleString()}/mo`
+	} else if (rates.weekly) {
+		return `$${rates.weekly.toLocaleString()}/wk`
+	} else if (rates.nightly) {
+		return `$${rates.nightly.toLocaleString()}/night`
+	}
 }
